@@ -1,26 +1,17 @@
 ---
-const pageTitle = 'Hobbies Page';
+import MainLayout from "../layouts/MainLayout.astro";
 
 const hobbies = ['Programming', 'Reading', 'Writing', 'Drawing', 'Gaming', 'Play music'];
 ---
-
-<body>
-  <ul class="menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li class="active"><a href="/hobbies">Contact</a></li>
-  </ul>
-  <h1>{pageTitle}</h1>
-  <p>
-    This is my {pageTitle}
-  </p>
+<MainLayout pageTitle="Hobbies">
   <h2>My hobbies</h2>
   <ul>
     {hobbies.map((hobby) => {
       return <li>{hobby}</li>;
     })}
   </ul>
-</body>
+</MainLayout>
+
 
 <style>
   body {

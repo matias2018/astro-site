@@ -1,17 +1,53 @@
+---
+const pageTitle = 'Hobbies Page';
+
+const hobbies = ['Programming', 'Reading', 'Writing', 'Drawing', 'Gaming', 'Play music'];
+---
+
 <body>
-  <ul>
+  <ul class="menu">
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/hobbies">Contact</a></li>
   </ul>
-  <h1>Hobbies</h1>
+  <h1>{pageTitle}</h1>
   <p>
-    This is my hobbies page
+    This is my {pageTitle}
   </p>
   <h2>My hobbies</h2>
   <ul>
-    <li>Programming</li>
-    <li>Reading</li>
-    <li>Writing</li>
+    {hobbies.map((hobby) => {
+      return <li>{hobby}</li>;
+    })}
   </ul>
 </body>
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+  }
+  ul {
+    list-style-type: none;
+  }
+
+  ul.menu {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  ul.menu li {
+    float: left;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+  }
+</style>

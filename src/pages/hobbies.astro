@@ -8,7 +8,7 @@ const hobbies = ['Programming', 'Reading', 'Writing', 'Drawing', 'Gaming', 'Play
   <ul class="menu">
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/hobbies">Contact</a></li>
+    <li class="active"><a href="/hobbies">Contact</a></li>
   </ul>
   <h1>{pageTitle}</h1>
   <p>
@@ -47,6 +47,7 @@ const hobbies = ['Programming', 'Reading', 'Writing', 'Drawing', 'Gaming', 'Play
     padding: 14px 16px;
     text-decoration: none;
   }
+  li.active,
   li a:hover {
     background-color: #111;
   }

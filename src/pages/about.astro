@@ -4,7 +4,7 @@ const pageTitle = 'About Page';
 <body>
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
+    <li class="active"><a href="/about">About</a></li>
     <li><a href="/hobbies">Hobbies</a></li>
   </ul>
   <h1>{pageTitle}</h1>
@@ -33,6 +33,7 @@ const pageTitle = 'About Page';
     padding: 14px 16px;
     text-decoration: none;
   }
+  li.active,
   li a:hover {
     background-color: #111;
   }

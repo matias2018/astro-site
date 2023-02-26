@@ -27,20 +27,27 @@ function openBurgerMenu(e) {
     theBody.classList.remove('overflow-hidden');
   }
 }
+
+const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', event => {
+      event.preventDefault();
+      window.location.href = item.querySelector('a').getAttribute('href');
+    });
+  });
+
 </script>
 
 
   <div class="header sticky">
-    <!-- burger menu -->
     <a href="#" class="burger-menu hide-on-desktop">
       <span class="bar" aria-hidden="true"></span>
       <span class="bar" aria-hidden="true"></span>
       <span class="bar" aria-hidden="true"></span>
       <span class="sr-only">Menu</span>
     </a>
-    <!-- mobile -->
     <div class="navbar-wrapper">
-      <a href="#" class="logo">
+      <a href="/" class="logo">
         <img
         src="src/images/logo.png"
         alt=""
@@ -52,19 +59,19 @@ function openBurgerMenu(e) {
       <nav class="navbar flex">
           <ul class="nav-items">
             <li class="nav-item active">
-              <a href="#">Inícios</a>
+              <a href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a href="about.html">Sobre Nós</a>
+              <a href="/about">About</a>
             </li>
             <li class="nav-item">
-              <a href="#">Empregabilidade</a>
+              <a href="/hobbies">Hobbies</a>
             </li>
             <li class="nav-item">
-              <a href="#">Notícias</a>
+              <a href="/blog">Blog</a>
             </li>
             <li class="nav-item">
-              <a href="#">Ajuda</a>
+              <a href="/contacts">Contacts</a>
             </li>
           </ul>
       </nav>
@@ -243,11 +250,6 @@ nav a {
   position:relative;
   text-align: left;
   width: 100%;
-  transition: all .3s;
-}
-
-.nav-item:hover {
-  color: #fec139;
 }
 
 .nav-item.active::after {
@@ -309,6 +311,9 @@ li.nav-item:hover::after {
     min-width: 200px;
   }
   .nav-item:hover {
+    cursor: pointer;
+  }
+  .nav-item:hover a {
     color: #fec139;
   }
   .navbar li.nav-item.active * {

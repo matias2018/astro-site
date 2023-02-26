@@ -1,5 +1,22 @@
-* {
+:root {
+  --color-dark: #333;
+  --color-darker: #111;
+  --color-light: #f4f4f4;
+  --color-highlight: #faa500;
+  --color-highlighter: #fec139;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  font-size: 1.6rem;
 }

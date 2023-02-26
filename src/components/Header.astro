@@ -1,0 +1,336 @@
+---
+
+---
+<script>
+const mobileMenu = document.querySelector('.navbar');
+const toggleButton = document.querySelector('.burger-menu');
+const bar = document.querySelector('.bar');
+const theMenu = document.querySelector('.nav-items');
+const theBody = document.body;
+let menuOpen = false; 
+
+toggleButton.addEventListener("click", openBurgerMenu)
+
+
+function openBurgerMenu(e) {
+  e.preventDefault();
+  menuOpen = !menuOpen;
+  if(menuOpen == true) {
+    mobileMenu.style.left = "0"
+    toggleButton.classList.add('opened');
+    theMenu.classList.add('opened');
+    theBody.classList.add('overflow-hidden');
+  } else {
+    mobileMenu.style.left = "-110%"
+    toggleButton.classList.remove('opened');
+    theMenu.classList.remove('opened');
+    theBody.classList.remove('overflow-hidden');
+  }
+}
+</script>
+
+
+  <div class="header sticky">
+    <!-- burger menu -->
+    <a href="#" class="burger-menu hide-on-desktop">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="sr-only">Menu</span>
+    </a>
+    <!-- mobile -->
+    <div class="navbar-wrapper">
+      <a href="#" class="logo">
+        <img
+        src="src/images/logo.png"
+        alt=""
+        width="auto"
+        height="30"
+        class="logo"
+      />
+      </a>
+      <nav class="navbar flex">
+          <ul class="nav-items">
+            <li class="nav-item active">
+              <a href="#">Inícios</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a href="#">Empregabilidade</a>
+            </li>
+            <li class="nav-item">
+              <a href="#">Notícias</a>
+            </li>
+            <li class="nav-item">
+              <a href="#">Ajuda</a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+
+<style>
+
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+img.logo {
+  width: 100px;
+  height: auto;
+  padding: 20px;
+}
+
+.burger-menu {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  transform: translate(-100%, 100%);
+  z-index: 20;
+}
+.burger-menu .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 10px;
+  transition: all .3s;
+  position: relative;
+}
+.navbar .burger-menu .bar {
+  background-color: #000;
+}
+.burger-menu.opened .bar:nth-child(1) {
+  animation: ease .7s top forwards;
+}
+.burger-menu .bar:nth-child(1) {
+  animation: ease .7s top-2 forwards;
+}
+.burger-menu.opened .bar:nth-child(2) {
+  animation: ease .7s scaled forwards;
+}
+.burger-menu .bar:nth-child(2) {
+  animation: ease .7s scaled-2 forwards;
+}
+.burger-menu.opened .bar:nth-child(3) {
+  animation: ease .7s bottom forwards;
+}
+.burger-menu .bar:nth-child(3) {
+  animation: ease .7s bottom-2 forwards;
+}
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 7px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 7px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes top-2 {
+  0% {
+    top: 11px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 11px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: 11px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 11px;
+    transform: rotate(135deg);
+  }
+}
+@keyframes bottom-2 {
+  0% {
+    bottom: 11px;
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: 11px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+nav {
+  background-color: #333;
+  overflow: hidden;
+  padding: 20px 10px;
+}
+
+nav a {
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.navbar {
+  font-family: 'Roboto Mono', monospace;
+  position: absolute;
+  left: -110%;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0 0 10px 0;
+  transition: all 0.3s;
+  z-index: 15;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5rem 2rem;
+}
+
+.nav-item {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  position:relative;
+  text-align: left;
+  width: 100%;
+  transition: all .3s;
+}
+
+.nav-item:hover {
+  color: #fec139;
+}
+
+.nav-item.active::after {
+  content: '';
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+}
+
+li.nav-item:hover::after {
+  content: '';
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  background: #389bd0;
+}
+
+.navbar li.nav-item.active * {
+  color: #fec139;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+@media screen and (min-width: 1023px) {
+  .hide-on-desktop {
+    display: none;
+  }
+
+  .navbar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav.navbar {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 50px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+  .navbar ul {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+  }
+  .nav-item {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #000;
+    min-width: 200px;
+  }
+  .nav-item:hover {
+    color: #fec139;
+  }
+  .navbar li.nav-item.active * {
+    color: #fec139;
+  }
+  .navbar a {
+    color: #000;
+  }
+
+  .navbar li::after {
+    content: 'fuck';
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    position: absolute;
+  }
+
+  .nav-items li.active::after,
+  .nav-items li.nav-item:hover::after {
+    width: 100%;
+  }
+}
+
+</style>
